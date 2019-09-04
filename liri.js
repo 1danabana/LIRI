@@ -1,7 +1,10 @@
 // links my keys js fiel to this one
 var keys = require('./keys.js')
-// links tiwtter api to application
+// linking twitter
 var Twitter = require('twitter')
+//linking spotify
+var spotify = require('spotify');
+
 var getMyTweets = function(){
 
     
@@ -18,6 +21,15 @@ var getMyTweets = function(){
         }
     });
 }
+ 
+spotify.search({ type: 'track', query: 'dancing in the moonlight' }, function(err, data) {
+    if ( err ) {
+        console.log('Error occurred: ' + err);
+        return;
+    }
+ 
+    console.log(data);
+});
 
 var pick = function (caseData, functionData) {
     switch(caseData){
